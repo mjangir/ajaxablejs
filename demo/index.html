@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Smart Ajax Demo</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div id="sa-alert-container"></div>
+<a
+class="first"
+id="firstLink"
+href="http://localhost/test/" 
+data-sa-ajax-on-success="myAjaxonSuccess"
+>First1</a>
+
+
+
+<a class="first" href="#">First2</a>
+<a class="first" href="#">First3</a>
+<a class="first" href="#">First4</a>
+
+<a class="second" href="#">Second1</a>
+<a class="second" href="#">Second2</a>
+<a class="second" href="#">Second2</a>
+
+<div style="width: 500px; height: 400px; border: 1px solid #000;" id="overlaydiv">
+
+</div>
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../lib/ajaxable.js"></script>
+<script type="text/javascript">
+var smInstance;
+window.onload = function() {
+    smInstance = new Ajaxable(document.querySelectorAll('.first'), {
+        ajaxUrl: 'http://localhost:8080'
+    });
+}
+</script>
+</body>
+</html>
