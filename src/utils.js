@@ -48,3 +48,30 @@ export const toCamelCase = (str) => {
     index === 0 ? letter.toLowerCase() : letter.toUpperCase()).replace(/\s+/g, '');
 };
 
+export const addClass = (element, classes) => {
+  if (typeof classes === 'undefined' || classes === null || classes === '' || !classes) {
+    return;
+  }
+  const classList = (classes.indexOf(' ') > -1) ? classes.split(' ') : classes;
+
+  if (Array.isArray(classList)) {
+    for (let i = 0; i < classList.length; i++) {
+      element.classList.add(classList[i]);
+    }
+  } else {
+    element.classList.add(classList);
+  }
+};
+
+export const escapeHtml = (source) => {
+  if (source == null) {
+    source = '';
+  }
+
+  return source
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+};

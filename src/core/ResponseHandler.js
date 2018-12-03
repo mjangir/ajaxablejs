@@ -1,3 +1,4 @@
+import createNotifierObject from '../components/notificationFactory';
 import { resolveFunctionName } from '../utils';
 
 export default class ResponseHandler {
@@ -8,6 +9,7 @@ export default class ResponseHandler {
    */
   constructor(element) {
     this.element = element;
+    this.notifier = createNotifierObject(this.element.options);
   }
 
   /**
@@ -51,7 +53,7 @@ export default class ResponseHandler {
    * @memberof ResponseHandler
    */
   onError(xhr, response) {
-    console.log(xhr);
+    this.notifier.error('This is the error message', 'Error');
     const opts = this.element.options;
     const handler = resolveFunctionName(opts.ajaxOnError);
 

@@ -2,6 +2,7 @@
 <head>
 <title>Smart Ajax Demo</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 <body>
 
@@ -48,12 +49,15 @@ data-sa-ajax-on-success="myAjaxonSuccess"
   </div>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> -->
+<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
 <script type="text/javascript" src="../lib/ajaxable.js"></script>
 <script type="text/javascript">
 var smInstance;
 window.onload = function() {
     smInstance = new Ajaxable(document.querySelectorAll('.first'), {
-        ajaxUrl: 'http://localhost:8080'
+        ajaxUrl: 'http://localhost:8080',
+        notificationType: 'swal'
     });
 }
 </script>
