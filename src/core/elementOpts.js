@@ -9,7 +9,7 @@ export default {
   ajaxPassword: null,
   ajaxContentType: 'application/x-www-form-urlencoded',
   ajaxTimeout: 30000,
-  ajaxRequestHeaders: {'x-request-with': 'smartajax'},
+  ajaxRequestHeaders: {'X-Requested-With': 'ajaxable'},
   ajaxData: {},
   ajaxBeforeSend: null,
   ajaxOnSuccess: null,
@@ -30,6 +30,8 @@ export default {
   domClearClosestTo: false,
   domRemoveTo: false,
   domRemoveClosestTo: false,
+  enableRedirect: true,
+  enableReload: true,
   notificationType: 'alert', // toastr|alert|swal
   alertOptions: {},
   toastrOptions: {},

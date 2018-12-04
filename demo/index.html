@@ -16,9 +16,9 @@ data-sa-ajax-on-success="myAjaxonSuccess"
 
 
 
-<a class="first" href="#">First2</a>
-<a class="first" href="#">First3</a>
-<a class="first" href="#">First4</a>
+<a class="first" href="http://localhost/ajaxable.php">First2</a>
+<a class="first" href="http://localhost/ajaxable.php">First3</a>
+<a class="first" href="http://localhost/ajaxable.php">First4</a>
 
 <a class="second" href="#">Second1</a>
 <a class="second" href="#">Second2</a>
@@ -49,15 +49,15 @@ data-sa-ajax-on-success="myAjaxonSuccess"
   </div>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> -->
-<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="../lib/ajaxable.js"></script>
 <script type="text/javascript">
 var smInstance;
 window.onload = function() {
     smInstance = new Ajaxable(document.querySelectorAll('.first'), {
-        ajaxUrl: 'http://localhost:8080',
-        notificationType: 'swal'
+        ajaxUrl: 'http://localhost/ajaxable.php',
+        notificationType: 'toastr'
     });
 }
 </script>

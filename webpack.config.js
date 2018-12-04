@@ -19,6 +19,7 @@ if (env === 'build') {
 const config = {
   mode: mode,
   entry: __dirname + '/src/index.js',
+  devtool: mode === 'development' ? 'inline-source-map' : undefined,
   output: {
     path: __dirname + '/lib',
     filename: outputFile,
@@ -40,10 +41,10 @@ const config = {
         exclude: /node_modules/
       },
       {
-        test:/\.(s*)css$/, 
-        use: ExtractTextPlugin.extract({ 
-          fallback:'style-loader',
-          use:['css-loader','sass-loader'],
+        test: /\.(s*)css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
         })
       }
     ]

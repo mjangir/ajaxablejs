@@ -1,5 +1,5 @@
 import NotificationBase from './NotificationBase';
-import { addClass, escapeHtml } from '../utils';
+import { addClass, escapeHtml } from '../../utils';
 
 const defaultOptions = {
   container: document.body,
@@ -26,10 +26,6 @@ class AlertNotify extends NotificationBase {
     const alertElement = document.createElement('div');
     const titleElement = document.createElement('strong');
     const messageElement = document.createElement('span');
-    const closeElement = document.createElement('a');
-
-    closeElement.setAttribute('title', 'close');
-    closeElement.innerHTML = '&times;';
 
     addClass(alertElement, `alert alert-${type}`);
 
@@ -52,8 +48,15 @@ class AlertNotify extends NotificationBase {
     }
 
     if (this.options.closeButton) {
+      const closeElement = document.createElement('a');
+
+      closeElement.setAttribute('title', 'close');
+      closeElement.classList.add('close');
+      closeElement.innerHTML = '&times;';
       addClass(closeElement, this.options.closeClass);
       alertElement.insertBefore(closeElement, alertElement.firstChild);
+
+      closeElement.onclick = () => alertElement.remove();
     }
 
     if (this.options.newestOnTop) {
